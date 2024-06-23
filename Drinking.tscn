@@ -10,21 +10,21 @@ empty_card = ExtResource("1_i7rwk")
 [node name="StockPile" type="Node2D" parent="."]
 position = Vector2(908, 254)
 
-[node name="Card2" parent="StockPile" instance=ExtResource("1_i7rwk")]
-visible = false
-scale = Vector2(0.4, 0.4)
-
 [node name="CardPile" type="Node2D" parent="."]
 position = Vector2(540, 1174)
-
-[node name="Card" parent="CardPile" instance=ExtResource("1_i7rwk")]
-visible = false
 
 [node name="DiscardPile" type="Node2D" parent="."]
 position = Vector2(175, 257)
 
-[node name="Card3" parent="DiscardPile" instance=ExtResource("1_i7rwk")]
-visible = false
-scale = Vector2(0.4, 0.4)
-
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="Debug" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_right = 1056.0
+offset_bottom = 81.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 35
+text = "downloading content from..."

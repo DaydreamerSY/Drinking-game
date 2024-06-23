@@ -1,6 +1,8 @@
 extends Node2D
 
 @export var empty_card: PackedScene
+var debug_text
+
 var stock_pile
 var discard_pile
 var card_pile
@@ -33,8 +35,14 @@ func _ready():
 	card_pile = $CardPile
 	http_request = $HTTPRequest
 	
+	debug_text = $Debug
+	
+	debug_text.text += data_url
+	
 	http_request.request_completed.connect(_on_request_completed)
 	http_request.request(data_url)
+	
+	debug_text.text = "request done!"
 		
 	pass # Replace with function body.
 
