@@ -42,7 +42,7 @@ func _ready():
 	http_request.request_completed.connect(_on_request_completed)
 	http_request.request(data_url)
 	
-	debug_text.text = "request done!"
+	debug_text.text = str(card_contents)
 		
 	pass # Replace with function body.
 
