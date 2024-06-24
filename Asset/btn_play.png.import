@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://decjj11ewy3b3"
-path="res://.godot/imported/full sheet spells no text.png-3922edacfeade0122481c184fb9b7ab7.ctex"
+uid="uid://bs1nndykhpxgt"
+path="res://.godot/imported/btn_play.png-bc57590ea0fd901c27aa29c6b02915d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/Spell and item basic card template - TornioDuva/full sheet spells no text.png"
-dest_files=["res://.godot/imported/full sheet spells no text.png-3922edacfeade0122481c184fb9b7ab7.ctex"]
+source_file="res://asset/btn_play.png"
+dest_files=["res://.godot/imported/btn_play.png-bc57590ea0fd901c27aa29c6b02915d8.ctex"]
 
 [params]
 
