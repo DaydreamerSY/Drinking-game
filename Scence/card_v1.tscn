@@ -1,19 +1,19 @@
 [gd_scene load_steps=6 format=3 uid="uid://dht3st25vamj5"]
 
-[ext_resource type="Script" path="res://Scripts/Card.gd" id="1_wu4eg"]
-[ext_resource type="Texture2D" uid="uid://c0eljfobf7is6" path="res://asset/sheet.png" id="2_kw2pd"]
-[ext_resource type="FontFile" uid="uid://ubjp86g8utl8" path="res://asset/font/Cinzel-Medium.ttf" id="3_iwvrq"]
+[ext_resource type="Script" path="res://Scripts/Card.gd" id="1_tbwc2"]
+[ext_resource type="Texture2D" uid="uid://c0eljfobf7is6" path="res://asset/sheet.png" id="2_glluu"]
+[ext_resource type="FontFile" uid="uid://ubjp86g8utl8" path="res://asset/font/Cinzel-Medium.ttf" id="3_31k5c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fr0tg"]
-atlas = ExtResource("2_kw2pd")
+atlas = ExtResource("2_glluu")
 region = Rect2(600, 900, 100, 180)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j5ji4"]
-atlas = ExtResource("2_kw2pd")
+atlas = ExtResource("2_glluu")
 region = Rect2(1300, 900, 100, 180)
 
 [node name="Card" type="Node2D"]
-script = ExtResource("1_wu4eg")
+script = ExtResource("1_tbwc2")
 
 [node name="Front" type="TextureRect" parent="."]
 anchors_preset = 8
@@ -39,7 +39,7 @@ offset_top = -253.0
 offset_right = 208.0
 offset_bottom = 224.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_iwvrq")
+theme_override_fonts/font = ExtResource("3_31k5c")
 theme_override_font_sizes/font_size = 33
 text = "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."
 horizontal_alignment = 1
