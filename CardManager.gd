@@ -114,7 +114,7 @@ func reveal_card():
 		"scale",
 		Vector2(1, 1),
 		0.5
-	)
+	).set_trans(Tween.TRANS_SINE)
 	tween_in.tween_property(
 		_last_card,
 		"scale",

@@ -19,6 +19,7 @@ position = Vector2(175, 257)
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [node name="Debug" type="Label" parent="."]
+visible = false
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0

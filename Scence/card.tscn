@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://dht3st25vamj5"]
 
-[ext_resource type="Script" path="res://Scence/Scripts/Card.gd" id="1_h6443"]
-[ext_resource type="Texture2D" uid="uid://fktie8xmt60x" path="res://Asset/Spell and item basic card template - TornioDuva/single cards/spell card no text.png" id="1_p5ev2"]
-[ext_resource type="Texture2D" uid="uid://dtbdx7mrsen5d" path="res://Asset/Spell and item basic card template - TornioDuva/single cards/empty card.png" id="2_vo05r"]
+[ext_resource type="Script" path="res://Scripts/Card.gd" id="1_wu4eg"]
+[ext_resource type="Texture2D" uid="uid://djc5pwa5von5x" path="res://asset/img_BG.png" id="2_e8r8y"]
+[ext_resource type="FontFile" uid="uid://ubjp86g8utl8" path="res://asset/font/Cinzel-Medium.ttf" id="3_iwvrq"]
 
 [node name="Card" type="Node2D"]
-script = ExtResource("1_h6443")
+script = ExtResource("1_wu4eg")
 
 [node name="Front" type="TextureRect" parent="."]
 anchors_preset = 8
@@ -22,7 +22,7 @@ grow_vertical = 2
 pivot_offset = Vector2(300, 5000)
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("1_p5ev2")
+texture = ExtResource("2_e8r8y")
 expand_mode = 1
 
 [node name="Content" type="Label" parent="."]
@@ -30,7 +30,7 @@ offset_left = -195.0
 offset_top = -253.0
 offset_right = 208.0
 offset_bottom = 224.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_iwvrq")
 theme_override_font_sizes/font_size = 33
 text = "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."
 horizontal_alignment = 1
@@ -53,5 +53,5 @@ grow_vertical = 2
 pivot_offset = Vector2(300, 5000)
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("2_vo05r")
+texture = ExtResource("2_e8r8y")
 expand_mode = 1
