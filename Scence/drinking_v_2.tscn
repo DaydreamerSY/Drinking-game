@@ -8,13 +8,13 @@ script = ExtResource("1_rhju1")
 empty_card = ExtResource("2_h2vhk")
 
 [node name="StockPile" type="Node2D" parent="."]
-position = Vector2(540, 2827)
+position = Vector2(540, 3810)
 
 [node name="Card" parent="StockPile" instance=ExtResource("2_h2vhk")]
 visible = false
 
 [node name="CardPile" type="Node2D" parent="."]
-position = Vector2(540, 910)
+position = Vector2(540, 1100)
 
 [node name="DiscardPile" type="Node2D" parent="."]
 position = Vector2(-2116, 918)
