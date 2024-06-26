@@ -14,15 +14,15 @@ func _ready():
 	if OS.get_name() == "Windows":
 		width = 540
 		height = 960
+		DisplayServer.window_set_position(DisplayServer.window_get_position() + Vector2i(100, 100))
 	elif OS.get_name() == "macOS":
 		width = 1080
 		height = 1920
 	else:
-		width = 900 # Default width for other OS
-		height = 1600 # Default height for other OS
+		width = 1080 # Default width for other OS
+		height = 2520 # Default height for other OS
 
 	DisplayServer.window_set_size(Vector2(width, height))
-	DisplayServer.window_set_position(DisplayServer.window_get_position() + Vector2i(100, 100))
 	
 	button_start = $Start
 	
