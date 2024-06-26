@@ -1,17 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://cje0grm0hnw41"]
+[gd_scene load_steps=3 format=3 uid="uid://cje0grm0hnw41"]
 
 [ext_resource type="Script" path="res://Scripts/CardManagerV1.gd" id="1_iaxtq"]
 [ext_resource type="PackedScene" uid="uid://dht3st25vamj5" path="res://Scence/card_v1.tscn" id="2_8cmap"]
-[ext_resource type="Texture2D" uid="uid://djc5pwa5von5x" path="res://asset/img_BG.png" id="3_45tnp"]
 
 [node name="Drinking v1" type="Node2D"]
 script = ExtResource("1_iaxtq")
 empty_card = ExtResource("2_8cmap")
-
-[node name="Background" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("3_45tnp")
 
 [node name="StockPile" type="Node2D" parent="."]
 position = Vector2(908, 254)
@@ -23,10 +17,6 @@ position = Vector2(540, 1174)
 position = Vector2(175, 257)
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
-
-[node name="@Timer@49058" type="Timer" parent="HTTPRequest"]
-wait_time = 5.0
-one_shot = true
 
 [node name="Debug" type="Label" parent="."]
 visible = false

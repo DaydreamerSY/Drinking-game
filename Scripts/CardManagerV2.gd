@@ -9,6 +9,7 @@ var card_pile
 
 var DEFAULT_PILE_SCALE = 0.4
 
+var card_contents = []
 var card_amount = 5
 var card_stock_list = []
 var card_discard_list = []
@@ -24,31 +25,23 @@ var tween_out
 var DEFAULT_SPEED = 0.4
 var DEFAULT_ROTATE = 0.05
 
-var http_request
-var data_url = "https://opensheet.elk.sh/1TIEmAhKgK1IX2-0EfAxEZ73ruPjLnO1KOa8HiZ4dJgQ/Contents"
-var card_contents = []
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	stock_pile = $StockPile
 	discard_pile = $DiscardPile
 	card_pile = $CardPile
-	http_request = $HTTPRequest
 	
 	debug_text = $Debug
-	
-	debug_text.text += data_url
-	
-	http_request.request_completed.connect(_on_request_completed)
-	http_request.request(data_url)
-	
-	debug_text.text = str(card_contents)
+	card_contents = GlobalVariant.card_contents["contents"]
+	print(GlobalVariant.card_contents)
+	start_game()
 		
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
 	if Input.is_action_just_pressed("press"):
 		
 		swiping = true
@@ -71,6 +64,8 @@ func _process(delta):
 	pass
 	
 func start_game():
+	randomize()
+	card_contents.shuffle()
 	clear_pile()
 	tween_in = create_tween()
 	var _amount_of_cards = len(card_contents)
@@ -111,8 +106,8 @@ func reveal_card():
 	_last_card.reparent(card_pile)
 	_last_card.global_position = old_position
 	
-	if tween_in:
-		tween_in.stop()
+	#if tween_in:
+		#tween_in.stop()
 	tween_in = create_tween()
 	tween_in.tween_property(
 		_last_card,
@@ -155,8 +150,8 @@ func discard_card():
 	_last_card.reparent(discard_pile)
 	_last_card.global_position = old_position
 	
-	if tween_out:
-		tween_out.stop()
+	#if tween_out:
+		#tween_out.stop()
 	tween_out = create_tween()
 	tween_out.tween_property(
 		_last_card,
@@ -194,10 +189,4 @@ func discard_card():
 	
 	return true
 
-func _on_request_completed(result, response_code, headers, body):
-	var json = JSON.parse_string(body.get_string_from_utf8())
-	#print(json)
-	for row in json:
-		card_contents.append(row["Content"])
-	start_game()
 
