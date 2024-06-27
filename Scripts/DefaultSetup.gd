@@ -25,11 +25,11 @@ func _ready():
 	DisplayServer.window_set_size(Vector2(width, height))
 	
 	button_start = $Start
+	http_request = $HTTPRequest
 	
 	print("Load globalVariant")
 	
 	if not load_game():
-		http_request = $HTTPRequest
 		http_request.request_completed.connect(_on_request_completed)
 		http_request.request(GlobalVariant.data_url)
 
@@ -92,3 +92,9 @@ func load_game():
 		return true
 	print("Reach here no matter what")
 
+
+
+func _on_update_content_pressed():
+	print("update content")
+	http_request.request_completed.connect(_on_request_completed)
+	http_request.request(GlobalVariant.data_url)
