@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://evyk3j7u3aeh"]
+[gd_scene load_steps=6 format=3 uid="uid://evyk3j7u3aeh"]
 
-[ext_resource type="PackedScene" uid="uid://omnl58sf6lew" path="res://Scence/drinking_v_2.tscn" id="1_5wbo3"]
 [ext_resource type="Script" path="res://Scripts/DefaultSetup.gd" id="1_k2k5j"]
-[ext_resource type="Texture2D" uid="uid://djc5pwa5von5x" path="res://asset/img_BG.png" id="2_0uv3j"]
-[ext_resource type="Texture2D" uid="uid://bs1nndykhpxgt" path="res://asset/btn_play.png" id="3_hs083"]
+[ext_resource type="Texture2D" uid="uid://djc5pwa5von5x" path="res://Asset/img_BG.png" id="2_0uv3j"]
+[ext_resource type="PackedScene" uid="uid://e1s3h13h8c4k" path="res://Scence/drinking_v_3.tscn" id="2_1pvf7"]
+[ext_resource type="Texture2D" uid="uid://bs1nndykhpxgt" path="res://Asset/btn_play.png" id="3_hs083"]
+
+[sub_resource type="Environment" id="Environment_1tjqh"]
+background_mode = 3
+glow_enabled = true
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -11,7 +15,10 @@ anchors_preset = 0
 offset_right = 1080.0
 offset_bottom = 1920.0
 script = ExtResource("1_k2k5j")
-playground = ExtResource("1_5wbo3")
+playground = ExtResource("2_1pvf7")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1tjqh")
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
@@ -32,6 +39,7 @@ expand_mode = 1
 stretch_mode = 6
 
 [node name="Start" type="TextureButton" parent="."]
+modulate = Color(1.25, 1, 1.25, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
