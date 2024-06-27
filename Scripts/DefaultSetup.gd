@@ -42,7 +42,7 @@ func _process(delta):
 func _on_start_pressed():
 	var _playground = playground.instantiate()
 	add_child(_playground)
-	button_start.visible = false
+	#button_start.visible = false
 	pass # Replace with function body.
 
 func _on_request_completed(result, response_code, headers, body):

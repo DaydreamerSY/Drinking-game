@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dhwoedlm8sidf"
-path="res://.godot/imported/CactusClassicalSerif-Regular.ttf-5a17550f45706a2631917e855ba6aefc.fontdata"
+path="res://.godot/imported/CactusClassicalSerif-Regular.ttf-53cc2da75d67d7dd4d3ab4189fe646d2.fontdata"
 
 [deps]
 
-source_file="res://asset/font/CactusClassicalSerif-Regular.ttf"
-dest_files=["res://.godot/imported/CactusClassicalSerif-Regular.ttf-5a17550f45706a2631917e855ba6aefc.fontdata"]
+source_file="res://Asset/font/CactusClassicalSerif-Regular.ttf"
+dest_files=["res://.godot/imported/CactusClassicalSerif-Regular.ttf-53cc2da75d67d7dd4d3ab4189fe646d2.fontdata"]
 
 [params]
 
