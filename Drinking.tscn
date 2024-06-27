@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://omnl58sf6lew" path="res://Scence/drinking_v_2.tscn" id="1_5wbo3"]
 [ext_resource type="Script" path="res://Scripts/DefaultSetup.gd" id="1_k2k5j"]
-[ext_resource type="Texture2D" uid="uid://djc5pwa5von5x" path="res://Asset/img_BG.png" id="2_0uv3j"]
-[ext_resource type="Texture2D" uid="uid://bs1nndykhpxgt" path="res://Asset/btn_play.png" id="3_hs083"]
+[ext_resource type="Texture2D" uid="uid://djc5pwa5von5x" path="res://asset/img_BG.png" id="2_0uv3j"]
+[ext_resource type="Texture2D" uid="uid://bs1nndykhpxgt" path="res://asset/btn_play.png" id="3_hs083"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -38,9 +38,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -351.0
+offset_left = -327.0
 offset_top = -26.0
-offset_right = 351.0
+offset_right = 375.0
 offset_bottom = 585.0
 grow_horizontal = 2
 grow_vertical = 2
