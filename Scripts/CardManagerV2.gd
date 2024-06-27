@@ -76,7 +76,7 @@ func start_game():
 		
 		#_card.scale = Vector2(DEFAULT_PILE_SCALE,DEFAULT_PILE_SCALE)
 		card_pile.add_child(_card)
-		#_card.face_down()
+		_card.face_down()
 		_card.update_content(card_contents[i])
 		#_card.visible=false
 		card_stock_list.append(_card)
@@ -87,6 +87,8 @@ func start_game():
 			Vector2(0, 0),
 			_speed_each_card
 		)
+		
+	card_stock_list[-1].face_up()
 
 func clear_pile():
 	var piles = [stock_pile, card_pile, discard_pile]
@@ -142,7 +144,7 @@ func discard_card():
 	if len(_card_list) == 0:
 		start_game()
 		return false
-	var _last_card = _card_list[-1]
+	var _last_card = _card_list.pop_back()
 	print(_last_card)
 	#_last_card.rotation += randf_range(-0.05, 0.05)
 	
@@ -184,6 +186,9 @@ func discard_card():
 		Vector2(DEFAULT_PILE_SCALE, DEFAULT_PILE_SCALE),
 		DEFAULT_SPEED / 2
 	)
+	
+	if len(_card_list) > 0:
+		_card_list[-1].face_up()
 	
 	
 	
