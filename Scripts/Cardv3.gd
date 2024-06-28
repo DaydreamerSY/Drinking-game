@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+signal card_exit_screen
+
 var front
 var back
 var content
@@ -86,5 +88,6 @@ func _on_btn_select_button_up():
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	on_screen_status = false
+	card_exit_screen.emit()
 	queue_free()
 	pass # Replace with function body.

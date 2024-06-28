@@ -22,50 +22,59 @@ var threshold = 50
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	stock_pile = $StockPile
-	discard_pile = $DiscardPile
+	#stock_pile = $StockPile
+	#discard_pile = $DiscardPile
 	card_pile = $CardPile
 	
 	debug_text = $Debug
-	card_contents = GlobalVariant.card_contents["contents"]
-	print(GlobalVariant.card_contents)
-	start_game()
-		
+	#card_contents = GlobalVariant.card_contents["contents"].slice(0, 5)
+	reload_pile()
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func reload_pile():
+	print("reload pile")
+	card_contents = GlobalVariant.card_contents["contents"]
+	#print(card_contents)
 	
-	if len(card_pile.get_children()) == 0:
-		queue_free()
-			
-	pass
-	
-func start_game():
 	randomize()
 	card_contents.shuffle()
 	var _amount_of_cards = len(card_contents)
-	var _speed_each_card = float(3) / float(_amount_of_cards)
-	print(_speed_each_card)
-	var piles_distance = stock_pile.global_position - card_pile.global_position
+
+	card_pile.visible = false
 	for i in range(_amount_of_cards):
 		var _card = empty_card.instantiate()
 		
-		#_card.scale = Vector2(DEFAULT_PILE_SCALE,DEFAULT_PILE_SCALE)
 		card_pile.add_child(_card)
-		#_card.face_down()
 		_card.update_content(card_contents[i])
 		_card.update_id(i)
-		#_card.visible=false
 		card_stock_list.append(_card)
-		#_card.position = Vector2(0, 0)
-		#_card.scale = Vector2(3, 3)
+		_card.card_exit_screen.connect(on_card_exit_screen)
+		
+	return true
+
+	
+func on_card_exit_screen():
+	print("some card exit screen")
+	print("Card pile in stock: ", len(card_pile.get_children()))
+	if len(card_pile.get_children()) == 1:
+		print("out of cards")
+		reload_pile()
+	pass
 	
 	
 		
-func reset_position():
-	position = Vector2(0, 0)
+func start_game():
+	card_pile.visible = true
+	#print(card_pile.get_children())
+	var _last_card = card_pile.get_children()[-1]
+	_last_card.scale = Vector2(2, 2)
+	var _tween = create_tween()
+	_tween.tween_property(
+		_last_card,
+		"scale",
+		Vector2(1, 1),
+		1
+	).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 
 
