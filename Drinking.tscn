@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://evyk3j7u3aeh"]
 
 [ext_resource type="Script" path="res://Scripts/DefaultSetup.gd" id="1_k2k5j"]
-[ext_resource type="Texture2D" uid="uid://djc5pwa5von5x" path="res://Asset/img_BG.png" id="2_0uv3j"]
-[ext_resource type="PackedScene" uid="uid://e1s3h13h8c4k" path="res://Scence/drinking_v_3.tscn" id="2_1pvf7"]
-[ext_resource type="Texture2D" uid="uid://bs1nndykhpxgt" path="res://Asset/btn_play.png" id="3_hs083"]
+[ext_resource type="Texture2D" uid="uid://djc5pwa5von5x" path="res://asset/img_BG.png" id="2_0uv3j"]
+[ext_resource type="PackedScene" uid="uid://dlccgann8ypeb" path="res://Scence/drinking_v_3.tscn" id="2_1pvf7"]
+[ext_resource type="Texture2D" uid="uid://bs1nndykhpxgt" path="res://asset/btn_play.png" id="3_hs083"]
 
 [sub_resource type="Environment" id="Environment_1tjqh"]
 background_mode = 3
@@ -15,7 +15,6 @@ anchors_preset = 0
 offset_right = 1080.0
 offset_bottom = 1920.0
 script = ExtResource("1_k2k5j")
-playground = ExtResource("2_1pvf7")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1tjqh")
@@ -58,6 +57,8 @@ texture_normal = ExtResource("3_hs083")
 layout_mode = 0
 offset_right = 141.0
 offset_bottom = 106.0
+
+[node name="Drinking v3" parent="." instance=ExtResource("2_1pvf7")]
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Update Content" to="." method="_on_update_content_pressed"]

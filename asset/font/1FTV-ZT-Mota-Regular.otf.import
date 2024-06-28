@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cg53te6wbmn81"
-path="res://.godot/imported/1FTV-ZT-Mota-Regular.otf-d49ec22122b93b7bd1a7ae600288b486.fontdata"
+path="res://.godot/imported/1FTV-ZT-Mota-Regular.otf-2d902d55a59dc469a496623d38038a34.fontdata"
 
 [deps]
 
-source_file="res://Asset/font/1FTV-ZT-Mota-Regular.otf"
-dest_files=["res://.godot/imported/1FTV-ZT-Mota-Regular.otf-d49ec22122b93b7bd1a7ae600288b486.fontdata"]
+source_file="res://asset/font/1FTV-ZT-Mota-Regular.otf"
+dest_files=["res://.godot/imported/1FTV-ZT-Mota-Regular.otf-2d902d55a59dc469a496623d38038a34.fontdata"]
 
 [params]
 

@@ -1,9 +1,11 @@
 extends Control
 
-@export var playground : PackedScene
+#@export var playground : PackedScene
 
 var http_request
 var button_start
+
+var playground
 
 func _ready():
 	var width: int
@@ -26,12 +28,15 @@ func _ready():
 	
 	button_start = $Start
 	http_request = $HTTPRequest
+	playground = $"Drinking v3"
 	
 	print("Load globalVariant")
 	
 	if not load_game():
 		http_request.request_completed.connect(_on_request_completed)
 		http_request.request(GlobalVariant.data_url)
+		
+	playground.reload_pile()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -40,15 +45,18 @@ func _process(delta):
 
 
 func _on_start_pressed():
-	var _playground = playground.instantiate()
-	add_child(_playground)
+	#var _playground = playground.instantiate()
+	#add_child(_playground)
+	
+	playground.start_game()
+	
 	#button_start.visible = false
 	pass # Replace with function body.
 
 func _on_request_completed(result, response_code, headers, body):
 	var json = JSON.parse_string(body.get_string_from_utf8())
 	print("Requesting...")
-	print(json)
+	#print(json)
 	for row in json:
 		GlobalVariant.card_contents["contents"].append(row["Content"])
 		
@@ -88,7 +96,7 @@ func load_game():
 
 		# Get the data from the JSON object
 		GlobalVariant.card_contents = json.get_data()
-		print(GlobalVariant.card_contents)
+		#print(GlobalVariant.card_contents)
 		return true
 	print("Reach here no matter what")
 

@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://df2swq0nstxr6"]
+[gd_scene load_steps=7 format=3 uid="uid://vwlngmcgibha"]
 
 [ext_resource type="Script" path="res://Scripts/Cardv3.gd" id="1_t0a3v"]
-[ext_resource type="Texture2D" uid="uid://o42pjo2w4ptk" path="res://Asset/img_card.png" id="2_4n3h1"]
-[ext_resource type="FontFile" uid="uid://cg53te6wbmn81" path="res://Asset/font/1FTV-ZT-Mota-Regular.otf" id="3_qk76a"]
-[ext_resource type="Texture2D" uid="uid://c0eljfobf7is6" path="res://Asset/sheet.png" id="4_s8y67"]
+[ext_resource type="Texture2D" uid="uid://o42pjo2w4ptk" path="res://asset/img_card.png" id="2_4n3h1"]
+[ext_resource type="FontFile" uid="uid://cg53te6wbmn81" path="res://asset/font/1FTV-ZT-Mota-Regular.otf" id="3_qk76a"]
+[ext_resource type="Texture2D" uid="uid://c0eljfobf7is6" path="res://asset/sheet.png" id="4_s8y67"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_51ca8"]
 size = Vector2(776, 1276)
