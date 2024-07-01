@@ -3,8 +3,7 @@ extends Node2D
 @export var empty_card: PackedScene
 var debug_text
 
-var stock_pile
-var discard_pile
+var particle
 var card_pile
 
 var DEFAULT_PILE_SCALE = 0.4
@@ -25,11 +24,24 @@ func _ready():
 	#stock_pile = $StockPile
 	#discard_pile = $DiscardPile
 	card_pile = $CardPile
-	
 	debug_text = $Debug
+	particle = $Particle
 	#card_contents = GlobalVariant.card_contents["contents"].slice(0, 5)
 	reload_pile()
 	pass # Replace with function body.
+	
+func _process(delta):
+	particle.position = get_global_mouse_position()	
+	
+	if Input.is_action_pressed("press"):
+		particle.emitting = true
+	else:
+		particle.emitting = false
+		#print("Start Pos: ", startPos)
+		
+	#if Input.is_action_just_released("press"):
+		#particle.visible = false
+		#particle.position = Vector2(-100, -100)
 
 func reload_pile():
 	print("reload pile")
