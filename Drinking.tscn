@@ -55,7 +55,8 @@ texture_normal = ExtResource("3_hs083")
 
 [node name="Update Content" type="TextureButton" parent="."]
 layout_mode = 0
-offset_right = 141.0
+offset_left = 939.0
+offset_right = 1080.0
 offset_bottom = 106.0
 
 [node name="Drinking v3" parent="." instance=ExtResource("2_1pvf7")]

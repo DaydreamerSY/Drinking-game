@@ -56,7 +56,7 @@ func _on_start_pressed():
 func _on_request_completed(result, response_code, headers, body):
 	var json = JSON.parse_string(body.get_string_from_utf8())
 	print("Requesting...")
-	#print(json)
+	print(json)
 	for row in json:
 		GlobalVariant.card_contents["contents"].append(row["Content"])
 		
