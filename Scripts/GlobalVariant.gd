@@ -6,6 +6,10 @@ var card_contents: Dictionary = {
 	"contents": []
 }
 
+var CURRENT_DECK = []
+
+var PLAYED_CARD = []
+
 var CONTENTS_DATA_FILE_NAME = "user://game-contents.json"
 
 var RECT_SIZE = Vector2(1080, 1920)

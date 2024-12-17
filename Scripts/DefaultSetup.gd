@@ -5,6 +5,7 @@ class_name Main extends Control
 @onready var playground = $"Drinking v3"
 @onready var button_start = $CanvasLayer/Start
 @onready var http_request = $HTTPRequest
+@onready var debug_view = $CanvasLayer/MarginContainer/TextEdit
 
 func _ready():
 	var width: int
@@ -108,3 +109,27 @@ func _on_update_content_pressed():
 	http_request.request(GlobalVariant.data_url)
 
 #endregion
+
+
+func _on_debug_view_pressed() -> void:
+	debug_view.visible = !debug_view.visible
+	debug_view.text = ""
+	#debug_view.text = "\n".join(GlobalVariant.card_contents["contents"])
+	var count = 1
+	#for i in GlobalVariant.CURRENT_DECK:
+		#debug_view.text += "{count}. {content}\n".format({
+			#"count": count,
+			#"content": i
+		#})
+		#count += 1
+		
+	debug_view.text += "\n------- Played cards -------\n"
+	
+	count = 1
+	for i in GlobalVariant.PLAYED_CARD:
+		debug_view.text += "{count}. {content}\n".format({
+			"count": count,
+			"content": i
+		})
+		count += 1
+	pass # Replace with function body.

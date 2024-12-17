@@ -55,6 +55,8 @@ func reload_pile():
 	card_contents.shuffle()
 	print(card_contents.size())
 	var _amount_of_cards = len(card_contents)
+	
+	GlobalVariant.CURRENT_DECK = card_contents.duplicate(true)
 
 	card_pile.visible = false
 	for i in range(_amount_of_cards):
@@ -69,11 +71,14 @@ func reload_pile():
 	return true
 
 	
-func on_card_exit_screen():
+func on_card_exit_screen(card):
 	#print("some card exit screen")
 	#print("Card pile in stock: ", len(card_pile.get_children()))
+	
+	GlobalVariant.PLAYED_CARD.append(card.content.text)
 	if len(card_pile.get_children()) == 1:
 		print("Out of card")
+		print(card)
 		finish_round.emit()
 	#if len(card_pile.get_children()) == 1:
 		#print("out of cards")
