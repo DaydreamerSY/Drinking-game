@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://clx8r8hqca4vn"]
+[gd_scene load_steps=7 format=3 uid="uid://clx8r8hqca4vn"]
 
 [ext_resource type="Script" path="res://Scripts/DefaultSetup.gd" id="1_p4ixu"]
 [ext_resource type="Texture2D" uid="uid://djc5pwa5von5x" path="res://Assets/img_BG.png" id="2_owncy"]
 [ext_resource type="Texture2D" uid="uid://bs1nndykhpxgt" path="res://Assets/btn_play.png" id="3_3rurv"]
+[ext_resource type="FontFile" uid="uid://cg53te6wbmn81" path="res://Assets/font/1FTV-ZT-Mota-Regular.otf" id="4_86bii"]
 [ext_resource type="PackedScene" uid="uid://dlccgann8ypeb" path="res://Scence/v3/drinking_v_3.tscn" id="4_r830j"]
 
 [sub_resource type="Environment" id="Environment_1tjqh"]
@@ -30,16 +31,13 @@ z_index = -10
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -117.0
-offset_top = -162.0
-offset_right = -117.0
-offset_bottom = -162.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.25, 1.25)
+pivot_offset = Vector2(540, 960)
 texture = ExtResource("2_owncy")
 expand_mode = 1
-stretch_mode = 6
+stretch_mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -64,8 +62,162 @@ offset_top = 2.0
 offset_right = 1080.0
 offset_bottom = 108.0
 
+[node name="Debug view" type="TextureButton" parent="CanvasLayer"]
+offset_left = 1.0
+offset_right = 142.0
+offset_bottom = 106.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 148.0
+offset_bottom = 1505.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 0
+
+[node name="TextEdit" type="TextEdit" parent="CanvasLayer/MarginContainer"]
+visible = false
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_86bii")
+theme_override_font_sizes/font_size = 64
+text = "adfsaasdfasdfsfadfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+
+
+adfsaasdfasdfsfadfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+
+
+adfsaasdfasdfsfadfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+
+
+adfsaasdfasdfsfadfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+
+
+adfsaasdfasdfsfadfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+
+
+adfsaasdfasdfsfadfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+
+
+adfsaasdfasdfsfadfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+
+
+adfsaasdfasdfsfadfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+
+
+adfsaasdfasdfsfadfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+
+
+adfsaasdfasdfsfadfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+
+
+adfsaasdfasdfsfadfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+
+
+adfsaasdfasdfsfadfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+
+
+
+adfsaasdfasdfsfadfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+
+
+adfsaasdfasdfsfadfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+adfsaasdfasdfsf
+
+"
+editable = false
+wrap_mode = 1
+
 [node name="Drinking v3" parent="." instance=ExtResource("4_r830j")]
 position = Vector2(0, -2)
 
 [connection signal="pressed" from="CanvasLayer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="CanvasLayer/Update Content" to="." method="_on_update_content_pressed"]
+[connection signal="pressed" from="CanvasLayer/Debug view" to="." method="_on_debug_view_pressed"]
