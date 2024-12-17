@@ -188,4 +188,3 @@ func _on_request_completed(result, response_code, headers, body):
 	for row in json:
 		card_contents.append(row["Content"])
 	start_game()
-
