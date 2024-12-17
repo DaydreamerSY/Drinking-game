@@ -58,24 +58,24 @@ func _input(event):
 		curPos = get_global_mouse_position()
 		
 		if startPos.distance_to(curPos) >= swipe_length and is_press_on_card:
-			print("Swipe Dectected")
+			#print("Swipe Dectected")
 			
 			var flick_velocity = (curPos - startPos).normalized() * 5000
 			
-			print("flick power and direction", flick_velocity)
-			print("before apply impulse: ", global_position)
+			#print("flick power and direction", flick_velocity)
+			#print("before apply impulse: ", global_position)
 			apply_impulse(
 				flick_velocity,
 				touch_point,
 			)
-			print("after apply impulse: ", global_position)
+			#print("after apply impulse: ", global_position)
 				
 
 
 func _on_btn_select_button_down():
-	print(card_id)
-	print(get_name())
-	print("Press on card at pos: ", get_local_mouse_position())
+	#print(card_id)
+	#print(get_name())
+	#print("Press on card at pos: ", get_local_mouse_position())
 	touch_point = get_local_mouse_position()
 	is_press_on_card = true
 	pass # Replace with function body.
@@ -89,5 +89,11 @@ func _on_btn_select_button_up():
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	on_screen_status = false
 	card_exit_screen.emit()
+	print(content.text)
 	queue_free()
+	pass # Replace with function body.
+
+
+func _on_btn_select_mouse_exited():
+	#print("mouse exited card")
 	pass # Replace with function body.

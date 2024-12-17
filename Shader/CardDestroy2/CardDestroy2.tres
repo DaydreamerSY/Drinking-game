@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://8ygbc3b6qhlb"]
+
+[ext_resource type="Shader" path="res://Shader/CardDestroy2/CardDestroy2.gdshader" id="1_a3447"]
+[ext_resource type="Texture2D" uid="uid://cwj5ebpmikiqe" path="res://Shader/CardDestroy2/2e2d1c3e8264f18428af57af4293415a859cbc8a.jpeg" id="2_4jv0u"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_a3447")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/burn_size = 0.07
+shader_parameter/ash_color = Color(0.00784314, 0.309804, 0.819608, 1)
+shader_parameter/burn_color = Color(0.313726, 0.0352941, 0.352941, 1)
+shader_parameter/proburn_color = Color(0.105882, 0.105882, 0.384314, 1)
+shader_parameter/dissolve_texture = ExtResource("2_4jv0u")

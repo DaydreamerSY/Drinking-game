@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://clx8r8hqca4vn"]
+
+[ext_resource type="Script" path="res://Scripts/DefaultSetup.gd" id="1_p4ixu"]
+[ext_resource type="Texture2D" uid="uid://djc5pwa5von5x" path="res://Assets/img_BG.png" id="2_owncy"]
+[ext_resource type="Texture2D" uid="uid://bs1nndykhpxgt" path="res://Assets/btn_play.png" id="3_3rurv"]
+[ext_resource type="PackedScene" uid="uid://dlccgann8ypeb" path="res://Scence/v3/drinking_v_3.tscn" id="4_r830j"]
+
+[sub_resource type="Environment" id="Environment_1tjqh"]
+background_mode = 3
+glow_enabled = true
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 2.0
+offset_right = 1080.0
+offset_bottom = 1922.0
+script = ExtResource("1_p4ixu")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1tjqh")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="CanvasLayerBackground" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="TextureRect" parent="CanvasLayerBackground"]
+z_index = -10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -117.0
+offset_top = -162.0
+offset_right = -117.0
+offset_bottom = -162.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_owncy")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Start" type="TextureButton" parent="CanvasLayer"]
+modulate = Color(1.25, 1, 1.25, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -351.0
+offset_top = -305.5
+offset_right = 351.0
+offset_bottom = 305.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_3rurv")
+
+[node name="Update Content" type="TextureButton" parent="CanvasLayer"]
+offset_left = 939.0
+offset_top = 2.0
+offset_right = 1080.0
+offset_bottom = 108.0
+
+[node name="Drinking v3" parent="." instance=ExtResource("4_r830j")]
+position = Vector2(0, -2)
+
+[connection signal="pressed" from="CanvasLayer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/Update Content" to="." method="_on_update_content_pressed"]

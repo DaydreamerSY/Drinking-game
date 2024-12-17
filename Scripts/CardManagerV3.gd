@@ -1,6 +1,9 @@
 extends Node2D
 
 @export var empty_card: PackedScene
+
+signal finish_round
+
 var debug_text
 
 var particle
@@ -45,17 +48,18 @@ func _process(delta):
 
 func reload_pile():
 	print("reload pile")
-	card_contents = GlobalVariant.card_contents["contents"]
+	card_contents = GlobalVariant.card_contents["contents"].duplicate(true)
 	#print(card_contents)
 	
 	randomize()
 	card_contents.shuffle()
+	print(card_contents.size())
 	var _amount_of_cards = len(card_contents)
 
 	card_pile.visible = false
 	for i in range(_amount_of_cards):
+	#for i in range(5):
 		var _card = empty_card.instantiate()
-		
 		card_pile.add_child(_card)
 		_card.update_content(card_contents[i])
 		_card.update_id(i)
@@ -66,17 +70,21 @@ func reload_pile():
 
 	
 func on_card_exit_screen():
-	print("some card exit screen")
-	print("Card pile in stock: ", len(card_pile.get_children()))
+	#print("some card exit screen")
+	#print("Card pile in stock: ", len(card_pile.get_children()))
 	if len(card_pile.get_children()) == 1:
-		print("out of cards")
-		reload_pile()
+		print("Out of card")
+		finish_round.emit()
+	#if len(card_pile.get_children()) == 1:
+		#print("out of cards")
+		#reload_pile()
 	pass
 	
 	
 		
 func start_game():
 	card_pile.visible = true
+	#reload_pile()
 	#print(card_pile.get_children())
 	var _last_card = card_pile.get_children()[-1]
 	_last_card.scale = Vector2(2, 2)
@@ -87,7 +95,3 @@ func start_game():
 		Vector2(1, 1),
 		1
 	).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-
-
-
-

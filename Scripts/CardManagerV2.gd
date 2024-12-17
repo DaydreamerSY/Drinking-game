@@ -188,5 +188,3 @@ func discard_card():
 	
 	
 	return true
-
-

@@ -26,4 +26,3 @@ func face_down():
 
 func update_content(text):
 	content.text = text
-

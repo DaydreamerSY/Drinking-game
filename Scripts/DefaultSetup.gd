@@ -1,11 +1,10 @@
-extends Control
+class_name Main extends Control
 
 #@export var playground : PackedScene
 
-var http_request
-var button_start
-
-var playground
+@onready var playground = $"Drinking v3"
+@onready var button_start = $CanvasLayer/Start
+@onready var http_request = $HTTPRequest
 
 func _ready():
 	var width: int
@@ -22,36 +21,37 @@ func _ready():
 		height = 1920
 	else:
 		width = 1080 # Default width for other OS
-		height = 2520 # Default height for other OS
+		height = 1920 # Default height for other OS
 
 	DisplayServer.window_set_size(Vector2(width, height))
 	
-	button_start = $Start
-	http_request = $HTTPRequest
-	playground = $"Drinking v3"
+	
 	
 	print("Load globalVariant")
 	
 	if not load_game():
 		http_request.request_completed.connect(_on_request_completed)
 		http_request.request(GlobalVariant.data_url)
+		load_game()
 		
-	playground.reload_pile()
+	#playground.reload_pile()
+	playground.finish_round.connect(_on_finished_round)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
+func _on_finished_round():
+	button_start.visible = true
 
 func _on_start_pressed():
-	#var _playground = playground.instantiate()
-	#add_child(_playground)
-	
+	button_start.visible = false
+	playground.reload_pile()
 	playground.start_game()
-	
-	#button_start.visible = false
 	pass # Replace with function body.
+
+#region GetDataFromSheet
 
 func _on_request_completed(result, response_code, headers, body):
 	var json = JSON.parse_string(body.get_string_from_utf8())
@@ -106,3 +106,5 @@ func _on_update_content_pressed():
 	print("update content")
 	http_request.request_completed.connect(_on_request_completed)
 	http_request.request(GlobalVariant.data_url)
+
+#endregion
