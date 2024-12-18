@@ -45,44 +45,64 @@ func update_id(id):
 	card_id=id
 
 
-func _input(event):
-	if Input.is_action_just_pressed("press"):
-			
-		swiping = true
-		startPos = get_global_mouse_position()
-		#print("Start Pos: ", startPos)
-		
-	if Input.is_action_just_released("press"):
-		
-		swiping = false
-		curPos = get_global_mouse_position()
-		
-		if startPos.distance_to(curPos) >= swipe_length and is_press_on_card:
-			#print("Swipe Dectected")
-			
-			var flick_velocity = (curPos - startPos).normalized() * 5000
-			
-			#print("flick power and direction", flick_velocity)
-			#print("before apply impulse: ", global_position)
-			apply_impulse(
-				flick_velocity,
-				touch_point,
-			)
-			#print("after apply impulse: ", global_position)
-				
+#func _input(event):
+	#
+	#if Input.is_action_just_pressed("press"):
+			#
+		#swiping = true
+		#startPos = get_global_mouse_position()
+		##print("Start Pos: ", startPos)
+		#
+	#if Input.is_action_just_released("press"):
+		#
+		#swiping = false
+		#curPos = get_global_mouse_position()
+		#
+		#if startPos.distance_to(curPos) >= swipe_length and is_press_on_card:
+			##print("Swipe Dectected")
+			#
+			#var flick_velocity = (curPos - startPos).normalized() * 3500
+			##print("flick power and direction", flick_velocity)
+			##print("before apply impulse: ", global_position)
+			#apply_impulse(
+				#flick_velocity,
+				#touch_point,
+			#)
+			##print("after apply impulse: ", global_position)
+				#
 
 
 func _on_btn_select_button_down():
 	#print(card_id)
 	#print(get_name())
-	#print("Press on card at pos: ", get_local_mouse_position())
+	print("Press on card at pos: ", get_local_mouse_position())
 	touch_point = get_local_mouse_position()
-	is_press_on_card = true
+	
+	
+	startPos = get_global_mouse_position()
+	
 	pass # Replace with function body.
 
 
 func _on_btn_select_button_up():
+		
+	print("Release card at pos: ", get_local_mouse_position())
+	
+	curPos = get_global_mouse_position()
+		
+	if startPos.distance_to(curPos) >= swipe_length:
+		#print("Swipe Dectected")
+		
+		var flick_velocity = (curPos - startPos).normalized() * 3500
+		#print("flick power and direction", flick_velocity)
+		#print("before apply impulse: ", global_position)
+		apply_impulse(
+			flick_velocity,
+			touch_point,
+		)
+		
 	is_press_on_card = false
+	
 	pass # Replace with function body.
 
 

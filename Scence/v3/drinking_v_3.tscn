@@ -17,6 +17,35 @@ colors = PackedColorArray(1, 0.564706, 1, 1, 0.572549, 1, 1, 1)
 script = ExtResource("1_kgdlw")
 empty_card = ExtResource("2_1hnov")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CardPile" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Particle" type="CPUParticles2D" parent="CanvasLayer"]
+z_index = 4096
+emitting = false
+amount = 80
+lifetime = 0.25
+texture = ExtResource("3_sfx5w")
+emission_shape = 1
+emission_sphere_radius = 6.0
+gravity = Vector2(2.08165e-12, 2.08165e-12)
+scale_amount_curve = SubResource("Curve_0gily")
+color = Color(1, 0.564706, 1, 1)
+color_ramp = SubResource("Gradient_1fa3g")
+
 [node name="CardPile" type="Node2D" parent="."]
 position = Vector2(540, 1100)
 
@@ -33,18 +62,6 @@ offset_bottom = 81.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 35
 text = "downloading content from..."
-
-[node name="Particle" type="CPUParticles2D" parent="."]
-emitting = false
-amount = 80
-lifetime = 0.25
-texture = ExtResource("3_sfx5w")
-emission_shape = 1
-emission_sphere_radius = 6.0
-gravity = Vector2(2.08165e-12, 2.08165e-12)
-scale_amount_curve = SubResource("Curve_0gily")
-color = Color(1, 0.564706, 1, 1)
-color_ramp = SubResource("Gradient_1fa3g")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 visible = false
