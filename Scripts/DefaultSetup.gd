@@ -5,7 +5,8 @@ class_name Main extends Control
 @onready var playground = $"Drinking v3"
 @onready var button_start = $CanvasLayer/Start
 @onready var http_request = $HTTPRequest
-@onready var debug_view = $CanvasLayer/MarginContainer/TextEdit
+@onready var debug_view = $CanvasLayer/DebugContainer
+@onready var debug_text = $CanvasLayer/DebugContainer/RichTextLabel
 
 func _ready():
 	var width: int
@@ -113,7 +114,8 @@ func _on_update_content_pressed():
 
 func _on_debug_view_pressed() -> void:
 	debug_view.visible = !debug_view.visible
-	debug_view.text = ""
+	GlobalVariant.DEBUG_ENABLE = debug_view.visible
+	debug_text.text = ""
 	#debug_view.text = "\n".join(GlobalVariant.card_contents["contents"])
 	var count = 1
 	#for i in GlobalVariant.CURRENT_DECK:
@@ -123,11 +125,11 @@ func _on_debug_view_pressed() -> void:
 		#})
 		#count += 1
 		
-	debug_view.text += "\n------- Played cards -------\n"
+	debug_text.text += "\n------- Played cards -------\n"
 	
 	count = 1
 	for i in GlobalVariant.PLAYED_CARD:
-		debug_view.text += "{count}. {content}\n".format({
+		debug_text.text += "{count}. {content}\n".format({
 			"count": count,
 			"content": i
 		})

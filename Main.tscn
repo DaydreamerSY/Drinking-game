@@ -37,7 +37,9 @@ scale = Vector2(1.25, 1.25)
 pivot_offset = Vector2(540, 960)
 texture = ExtResource("2_owncy")
 expand_mode = 1
-stretch_mode = 1
+
+[node name="Drinking v3" parent="." instance=ExtResource("4_r830j")]
+position = Vector2(0, -2)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -62,29 +64,41 @@ offset_top = 2.0
 offset_right = 1080.0
 offset_bottom = 108.0
 
-[node name="Debug view" type="TextureButton" parent="CanvasLayer"]
+[node name="BtnDebug" type="TextureButton" parent="CanvasLayer"]
 offset_left = 1.0
 offset_right = 142.0
 offset_bottom = 106.0
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+[node name="DebugContainer" type="MarginContainer" parent="CanvasLayer"]
+visible = false
 anchors_preset = 10
 anchor_right = 1.0
 offset_top = 148.0
-offset_bottom = 1505.0
+offset_bottom = 1648.0
 grow_horizontal = 2
-mouse_filter = 2
-theme_override_constants/margin_left = 25
+mouse_filter = 0
+mouse_force_pass_scroll_events = false
+theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 0
 
-[node name="TextEdit" type="TextEdit" parent="CanvasLayer/MarginContainer"]
-visible = false
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DebugContainer"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(1, 1, 1, 0.67451)
+custom_minimum_size = Vector2(993.91, 1500)
 layout_mode = 2
-mouse_filter = 1
-theme_override_fonts/font = ExtResource("4_86bii")
-theme_override_font_sizes/font_size = 64
+size_flags_vertical = 4
+mouse_filter = 0
+mouse_force_pass_scroll_events = false
+texture = ExtResource("2_owncy")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/DebugContainer"]
+layout_mode = 2
+mouse_force_pass_scroll_events = false
+theme_override_fonts/normal_font = ExtResource("4_86bii")
+theme_override_font_sizes/normal_font_size = 64
 text = "adfsaasdfasdfsfadfsaasdfasdfsf
 adfsaasdfasdfsf
 adfsaasdfasdfsf
@@ -212,12 +226,7 @@ adfsaasdfasdfsf
 adfsaasdfasdfsf
 
 "
-editable = false
-wrap_mode = 1
-
-[node name="Drinking v3" parent="." instance=ExtResource("4_r830j")]
-position = Vector2(0, -2)
 
 [connection signal="pressed" from="CanvasLayer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="CanvasLayer/Update Content" to="." method="_on_update_content_pressed"]
-[connection signal="pressed" from="CanvasLayer/Debug view" to="." method="_on_debug_view_pressed"]
+[connection signal="pressed" from="CanvasLayer/BtnDebug" to="." method="_on_debug_view_pressed"]

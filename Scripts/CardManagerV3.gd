@@ -26,9 +26,9 @@ var threshold = 50
 func _ready():
 	#stock_pile = $StockPile
 	#discard_pile = $DiscardPile
-	card_pile = $CardPile
+	card_pile = $CanvasLayer/CardPile
 	debug_text = $Debug
-	particle = $Particle
+	particle = $CanvasLayer/Particle
 	#card_contents = GlobalVariant.card_contents["contents"].slice(0, 5)
 	reload_pile()
 	pass # Replace with function body.
@@ -57,6 +57,7 @@ func reload_pile():
 	var _amount_of_cards = len(card_contents)
 	
 	GlobalVariant.CURRENT_DECK = card_contents.duplicate(true)
+	
 
 	card_pile.visible = false
 	for i in range(_amount_of_cards):
